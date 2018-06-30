@@ -37,7 +37,22 @@
          console.log(childSnapshot.val().role);
          console.log(childSnapshot.val().date);
          console.log(childSnapshot.val().monthly);
+
+         var newtr = $("<tr>");
+         var nametd = $("<td>").text(childSnapshot.val().name);
+         var roletd = $("<td>").text(childSnapshot.val().role);
+         var datetd = $("<td>").text(childSnapshot.val().date);
+         var monthlytd = $("<td>").text(childSnapshot.val().monthly);
+
+         newtr.append(nametd)
+         newtr.append(roletd)
+         newtr.append(datetd)
+         newtr.append(monthlytd)
+
+         $(".table tbody").append(newtr);
      });
+
+
 
     }, function (errorObject) {
         console.log("Errors handled: " + errorObject.code);

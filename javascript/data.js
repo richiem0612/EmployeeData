@@ -31,6 +31,7 @@
           monthly: monthly,
           dateAdded: firebase.database.ServerValue.TIMESTAMP
       });
+    });
 
      database.ref().on("child_added", function(childSnapshot){
          console.log(childSnapshot.val().name);
@@ -50,7 +51,6 @@
          newtr.append(monthlytd)
 
          $(".table tbody").append(newtr);
-     });
 
 
 

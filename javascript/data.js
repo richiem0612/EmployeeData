@@ -15,6 +15,8 @@
   var role = "";
   var date = "";
   var monthly = "";
+  var total = "";
+  var worked = "";
 
   $("#add-employee").on("click", function(){
       event.preventDefault();
@@ -42,13 +44,15 @@
          var newtr = $("<tr>");
          var nametd = $("<td>").text(childSnapshot.val().name);
          var roletd = $("<td>").text(childSnapshot.val().role);
-         var datetd = $("<td>").text(childSnapshot.val().date);
+         var datetd = $("<td>").text(moment(childSnapshot.val().date).format("MMM Do YY"));
+         var workedtd = $("<td>").text(moment(childSnapshot.val().date).diff(moment(), "months") * -1);
          var monthlytd = $("<td>").text(childSnapshot.val().monthly);
 
-         newtr.append(nametd)
-         newtr.append(roletd)
-         newtr.append(datetd)
-         newtr.append(monthlytd)
+         newtr.append(nametd);
+         newtr.append(roletd);
+         newtr.append(datetd);
+         newtr.append(workedtd);
+         newtr.append(monthlytd);
 
          $(".table tbody").append(newtr);
 

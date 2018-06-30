@@ -39,4 +39,6 @@
          console.log(childSnapshot.val().monthly);
      });
 
-  });
+    }, function (errorObject) {
+        console.log("Errors handled: " + errorObject.code);
+    });

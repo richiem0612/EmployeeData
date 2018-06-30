@@ -28,7 +28,15 @@
           name: name,
           role: role,
           date: date,
-          monthly: monthly
+          monthly: monthly,
+          dateAdded: firebase.database.ServerValue.TIMESTAMP
       });
+
+     database.ref().on("child_added", function(childSnapshot){
+         console.log(childSnapshot.val().name);
+         console.log(childSnapshot.val().role);
+         console.log(childSnapshot.val().date);
+         console.log(childSnapshot.val().monthly);
+     });
 
   });

@@ -44,7 +44,7 @@
          var newtr = $("<tr>");
          var nametd = $("<td>").text(childSnapshot.val().name);
          var roletd = $("<td>").text(childSnapshot.val().role);
-         var datetd = $("<td>").text(moment(childSnapshot.val().date).format("MMM Do YY"));
+         var datetd = $("<td>").text(moment(childSnapshot.val().date).format("MMM Do YYYY"));
          var workedtd = $("<td>").text(moment(childSnapshot.val().date).diff(moment(), "months") * -1);
          var monthlytd = $("<td>").text(childSnapshot.val().monthly);
 
@@ -55,7 +55,6 @@
          newtr.append(monthlytd);
 
          $(".table tbody").append(newtr);
-
 
 
     }, function (errorObject) {

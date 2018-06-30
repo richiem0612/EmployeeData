@@ -10,4 +10,25 @@
   firebase.initializeApp(config);
 
   var database =  firebase.database();
-  
+
+  var name = "";
+  var role = "";
+  var date = "";
+  var monthly = "";
+
+  $("#add-employee").on("click", function(){
+      event.preventDefault();
+
+      name = $("#employee-name").val().trim();
+      role = $("#role").val().trim();
+      date = $("#start-date").val().trim();
+      monthly = $("#monthly-rate").val().trim();
+
+      database.ref().push({
+          name: name,
+          role: role,
+          date: date,
+          monthly: monthly
+      });
+
+  });
